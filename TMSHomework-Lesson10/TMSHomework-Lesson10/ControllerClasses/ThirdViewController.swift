@@ -17,8 +17,7 @@ class ThirdViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.addSubview(dataButton)
-        self.view.addSubview(screenLabel)
+        addSubviews()
         
         setupButton()
         setupScreenLabel()
@@ -36,6 +35,11 @@ class ThirdViewController: UIViewController {
         screenLabel.textColor = UIColor.black
         screenLabel.frame = CGRect(x: Int(UIScreen.main.bounds.size.width/2) - 100/2, y: Int(dataButton.frame.minY) - 80, width: 100, height: 60)
         screenLabel.text = "Экран №\(screenNumber!)"
+    }
+    
+    func addSubviews() {
+        self.view.addSubview(dataButton)
+        self.view.addSubview(screenLabel)
     }
     
     @objc func sendData() {

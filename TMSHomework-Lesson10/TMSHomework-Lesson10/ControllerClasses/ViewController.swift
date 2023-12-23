@@ -13,12 +13,12 @@ class ViewController: UIViewController {
     let screenNumber = 1
     let dataButton = UIButton(type: .system)
     let screenLabel = UILabel()
+    var customInstance = CustomClass()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.addSubview(dataButton)
-        self.view.addSubview(screenLabel)
+        addSubviews()
         
         setupButton()
         setupScreenLabel()
@@ -38,12 +38,26 @@ class ViewController: UIViewController {
         screenLabel.text = "Экран №\(screenNumber)"
     }
     
+    func addSubviews() {
+        self.view.addSubview(dataButton)
+        self.view.addSubview(screenLabel)
+    }
+    
+    func setPropertiesOfCustomInstance() {
+        customInstance.stringProperty = "Some String"
+        customInstance.intProperty = 2
+        customInstance.doubleProperty = 3.05
+    }
+    
     @objc func sendData() {
         let storyboard = UIStoryboard(name: "SecondViewController", bundle: nil)
         let secondViewController = storyboard.instantiateViewController(withIdentifier: "SecondViewController") as! SecondViewController
         secondViewController.modalPresentationStyle = .fullScreen
         secondViewController.data = self.data
         secondViewController.screenNumber = self.screenNumber + 1
+        
+        setPropertiesOfCustomInstance()
+        secondViewController.customInstance = self.customInstance
         
         present(secondViewController, animated: true)
     }

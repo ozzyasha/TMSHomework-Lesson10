@@ -21,6 +21,7 @@
 		7A6042F72B35B8E80026EB03 /* FifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6042F62B35B8E80026EB03 /* FifthViewController.swift */; };
 		7A6042FC2B35C6B60026EB03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A6042FB2B35C6B60026EB03 /* Main.storyboard */; };
 		7A6042FE2B35C6C90026EB03 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6042FD2B35C6C90026EB03 /* ViewController.swift */; };
+		7A6043002B374F6C0026EB03 /* CustomClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6042FF2B374F6C0026EB03 /* CustomClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		7A6042F62B35B8E80026EB03 /* FifthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthViewController.swift; sourceTree = "<group>"; };
 		7A6042FB2B35C6B60026EB03 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		7A6042FD2B35C6C90026EB03 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7A6042FF2B374F6C0026EB03 /* CustomClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomClass.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 			children = (
 				7A6042D02B32FC750026EB03 /* AppDelegate.swift */,
 				7A6042D22B32FC750026EB03 /* SceneDelegate.swift */,
+				7A6042FF2B374F6C0026EB03 /* CustomClass.swift */,
 				7A6042F82B35B90B0026EB03 /* ControllerClasses */,
 				7A6042FA2B35B9390026EB03 /* ControllerStoryboards */,
 				7A6042D92B32FC7A0026EB03 /* Assets.xcassets */,
@@ -187,6 +190,7 @@
 				7A6042D32B32FC750026EB03 /* SceneDelegate.swift in Sources */,
 				7A6042F12B35B8790026EB03 /* SecondViewController.swift in Sources */,
 				7A6042F32B35B88F0026EB03 /* ThirdViewController.swift in Sources */,
+				7A6043002B374F6C0026EB03 /* CustomClass.swift in Sources */,
 				7A6042FE2B35C6C90026EB03 /* ViewController.swift in Sources */,
 				7A6042F72B35B8E80026EB03 /* FifthViewController.swift in Sources */,
 			);

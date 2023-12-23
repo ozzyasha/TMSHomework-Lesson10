@@ -13,15 +13,17 @@ class SecondViewController: UIViewController {
     var screenNumber: Int?
     let dataButton = UIButton(type: .system)
     let screenLabel = UILabel()
+    var customInstance: CustomClass?
+    let propertiesLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.addSubview(dataButton)
-        self.view.addSubview(screenLabel)
+        addSubviews()
         
         setupButton()
         setupScreenLabel()
+        setupPropertiesLabel()
     }
     
     func setupButton() {
@@ -32,10 +34,23 @@ class SecondViewController: UIViewController {
         dataButton.frame = CGRect(x: Int(UIScreen.main.bounds.size.width/2) - 270/2, y: 200, width: 270, height: 60)
     }
     
+    func setupPropertiesLabel() {
+        propertiesLabel.textColor = UIColor.black
+        propertiesLabel.frame = CGRect(x: Int(UIScreen.main.bounds.size.width/2) - 200/2, y: Int(dataButton.frame.maxY) + 20, width: 200, height: 120)
+        propertiesLabel.numberOfLines = 4
+        propertiesLabel.text = "CustomClass properties:\n • String - \(customInstance?.stringProperty ?? "No value")\n • Int - \(customInstance?.intProperty ?? 0)\n • Double - \(customInstance?.doubleProperty ?? 0.0)"
+    }
+    
     func setupScreenLabel() {
         screenLabel.textColor = UIColor.black
         screenLabel.frame = CGRect(x: Int(UIScreen.main.bounds.size.width/2) - 100/2, y: Int(dataButton.frame.minY) - 80, width: 100, height: 60)
         screenLabel.text = "Экран №\(screenNumber!)"
+    }
+    
+    func addSubviews() {
+        self.view.addSubview(dataButton)
+        self.view.addSubview(screenLabel)
+        self.view.addSubview(propertiesLabel)
     }
     
     @objc func sendData() {
