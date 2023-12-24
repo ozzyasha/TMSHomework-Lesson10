@@ -1,0 +1,6 @@
+framework module Pods_TMSHomework_CatGame {
+  umbrella header "Pods-TMSHomework-CatGame-umbrella.h"
+
+  export *
+  module * { export * }
+}
