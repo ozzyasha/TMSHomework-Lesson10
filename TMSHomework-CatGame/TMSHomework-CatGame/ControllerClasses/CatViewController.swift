@@ -17,16 +17,21 @@ class CatViewController: UIViewController {
     let leftButton = UIButton(type: .system)
     let rightButton = UIButton(type: .system)
     
+    let backButton = UIButton(type: .system)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         addSubviews()
+        setNavigationController()
+        
         setupButtonsConstraints()
         
         setupButtons(button: upButton)
         setupButtons(button: downButton)
         setupButtons(button: leftButton)
         setupButtons(button: rightButton)
+        setupButtons(button: backButton)
         
         setupCircleView()
     }
@@ -60,6 +65,9 @@ class CatViewController: UIViewController {
         case rightButton:
             button.setTitle("👉", for: .normal)
             button.addTarget(self, action: #selector(rightButtonTapped), for: .touchUpInside)
+        case backButton:
+            button.setTitle("Вернуться к выбору игры", for: .normal)
+            button.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         default:
             button.setTitle("No button", for: .normal)
         }
@@ -76,6 +84,8 @@ class CatViewController: UIViewController {
         view.addSubview(downButton)
         view.addSubview(leftButton)
         view.addSubview(rightButton)
+        
+        view.addSubview(backButton)
     }
     
     func setupButtonsConstraints() {
@@ -107,16 +117,24 @@ class CatViewController: UIViewController {
             make.height.equalTo(50)
         }
         
+        backButton.snp.makeConstraints { make in
+            make.bottom.equalToSuperview().offset(-70)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(230)
+            make.height.equalTo(50)
+        }
+        
     }
     
     @objc func circleViewTapped() {
         let safeAreaWidth = Int(view.safeAreaLayoutGuide.layoutFrame.size.width)
         let upButtonBottom = Int(upButton.frame.maxY)
-        let safeAreaBottom = Int(view.safeAreaLayoutGuide.layoutFrame.size.height)
+//        let safeAreaBottom = Int(view.safeAreaLayoutGuide.layoutFrame.size.height)
+        let backButtonTop = Int(backButton.frame.minY)
         
         let circleSide = Int(circleView.bounds.size.width)
         
-        circleView.frame = CGRect(x: Int.random(in: 1..<(safeAreaWidth - circleSide)), y: Int.random(in: (upButtonBottom + circleSide)..<(safeAreaBottom - circleSide)), width: circleSide, height: circleSide)
+        circleView.frame = CGRect(x: Int.random(in: 1..<(safeAreaWidth - circleSide)), y: Int.random(in: (upButtonBottom + circleSide)..<(backButtonTop - circleSide)), width: circleSide, height: circleSide)
     }
     
     @objc func upButtonTapped() {
@@ -135,7 +153,7 @@ class CatViewController: UIViewController {
         let circleTop = Int(circleView.frame.minY)
         let circleSide = Int(circleView.bounds.size.width)
         
-        if circleBottom < Int(view.safeAreaLayoutGuide.layoutFrame.size.height - 10) {
+        if circleBottom < Int(backButton.frame.minY - 10) {
             circleView.frame = CGRect(x: circleLeft, y: circleTop + 10, width: circleSide, height: circleSide)
         }
     }
@@ -157,6 +175,14 @@ class CatViewController: UIViewController {
         if circleRight < Int(UIScreen.main.bounds.size.width) - 10 {
             circleView.frame = CGRect(x: circleLeft + 10, y: circleTop, width: circleSide, height: circleSide)
         }
+    }
+    
+    @objc func backButtonTapped() {
+        present(ViewController(), animated: true)
+    }
+    
+    func setNavigationController() {
+        
     }
     
 }

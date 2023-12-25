@@ -35,7 +35,7 @@ class ViewController: UIViewController {
     
     func setupChooseGameLabel() {
         chooseGameLabel.text = "Выберите игру:"
-        chooseGameLabel.textColor = UIColor.black
+        chooseGameLabel.textColor = UIColor.systemBlue
         chooseGameLabel.font = UIFont(name: "Helvetica", size: 20)
     }
     
@@ -43,13 +43,13 @@ class ViewController: UIViewController {
         
         switch button {
         case catButton:
-            catButton.setTitle("Игра для котиков", for: .normal)
+            catButton.setTitle("🐈 Игра для котиков", for: .normal)
             catButton.addTarget(self, action: #selector(goToCatGame), for: .touchUpInside)
         case squareButton:
-            squareButton.setTitle("Квадраты", for: .normal)
+            squareButton.setTitle("🟩🟨🟦 Квадраты", for: .normal)
             squareButton.addTarget(self, action: #selector(goToSquareGame), for: .touchUpInside)
         case carButton:
-            carButton.setTitle("Машинки", for: .normal)
+            carButton.setTitle("🏎️ Машинки", for: .normal)
             carButton.addTarget(self, action: #selector(goToCarGame), for: .touchUpInside)
         default:
             button.setTitle("No button", for: .normal)
